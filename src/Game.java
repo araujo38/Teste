@@ -16,7 +16,7 @@ public class Game extends Applet implements Runnable, KeyListener {
 	
 	int cont = 0;
 	
-	int BULLETS = 30;
+	int BULLETS = 10;
 	PlayerBullet [] bullet = new PlayerBullet[BULLETS];
 	
 	int ENEMY = 10;
