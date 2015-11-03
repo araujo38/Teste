@@ -8,7 +8,7 @@ public class Enemy extends Basic_shapes{
 	
 	public Rectangle getBounds(){
 		Rectangle r;
-		r = new Rectangle((int)getX(), (int) getY(), 30, 30);
+		r = new Rectangle((int)getX(), (int) getY(), 40, 40);
 		return r;
 	}
 	

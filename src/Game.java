@@ -35,6 +35,7 @@ public class Game extends Applet implements Runnable, KeyListener {
 	
 	private int[][]gameSpace = new int[16][12];
 	
+	@Override
 	public void init(){
 		backbuffer = new BufferedImage(600,800, BufferedImage.TYPE_INT_RGB);
 		g2d = backbuffer.createGraphics();
@@ -60,10 +61,12 @@ public class Game extends Applet implements Runnable, KeyListener {
 //		g2d.fillRect(0, 0, 600, 800);
 	}
 	
+	@Override
 	public void paint(Graphics g){
 		g.drawImage(backbuffer, 0, 0, this);
 	}
 	
+	@Override
 	public void update(Graphics g){
 		g2d.setTransform(identity);
 		
@@ -90,6 +93,7 @@ public class Game extends Applet implements Runnable, KeyListener {
 		g2d.fill(p.getShape());
 	}
 	public void drawEnemy(){
+		int contadorIni = 0;
 		for(int n =0; n<ENEMY; n++){
 			if(enyms[n].isAlive()){
 				g2d.setTransform(identity);
@@ -100,8 +104,13 @@ public class Game extends Applet implements Runnable, KeyListener {
 			
 				g2d.setColor(Color.DARK_GRAY);
 				g2d.fill(enyms[n].getShape());
+				contadorIni++;
 			}
 		}
+		g2d.setTransform(identity);
+		g2d.setColor(Color.WHITE);
+		g2d.drawString("numero de inimigos: " + contadorIni, 20, 20);
+		
 	}
 	public void drawPlayerBullet(){
 		
@@ -116,11 +125,13 @@ public class Game extends Applet implements Runnable, KeyListener {
 	}
 	
 	
+	@Override
 	public void start(){
 		gameloop = new Thread(this);
 		gameloop.start();
 		
 	}
+	@Override
 	public void run(){
 		Thread t = Thread.currentThread();
 		
@@ -137,6 +148,7 @@ public class Game extends Applet implements Runnable, KeyListener {
 			repaint();
 		}
 	}
+	@Override
 	public void stop(){
 		gameloop = null;
 	}
@@ -217,6 +229,7 @@ public class Game extends Applet implements Runnable, KeyListener {
 		}
 	}
 	
+	@Override
 	public void keyPressed(KeyEvent e){
 		switch(e.getKeyCode()){
 		case KeyEvent.VK_LEFT:
