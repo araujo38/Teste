@@ -174,6 +174,8 @@ public class Game extends Applet implements Runnable, KeyListener {
 		}
 	}
 	
+	//asdasdasd
+	
 	public void updateBullets() {
 		// TODO Auto-generated method stub
 		for(int n =0; n<BULLETS; n++){
